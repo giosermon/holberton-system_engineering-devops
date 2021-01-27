@@ -1,0 +1,2 @@
+This README file belongs to the Project:0x00. Shell, basics
+In computing, a shell is a computer program which exposes an operating system's services to a human user or other program. In general, operating system shells use either a command-line interface (CLI) or graphical user interface (GUI), depending on a computer's role and particular operation.
