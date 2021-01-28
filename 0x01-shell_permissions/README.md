@@ -8,5 +8,5 @@ Viewing and Understanding File Permissions
 
 We can use the -l (long format) option to have ls list the file permissions for files and directories.
 
-ls -l
+ls -la
 
