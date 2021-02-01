@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%01.2f\n" $NUM
+sort | uniq -u
