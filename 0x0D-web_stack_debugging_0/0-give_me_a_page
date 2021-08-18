@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Fix the Docker container Start the web server
+
+sudo service apache2 restart
