@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Configure your ubuntu server to show holberton school port 80
-# redirect_me and configure X-Served-By $hostname in headers
-apt-get -y update
-apt-get -y install nginx
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://bayona.me permanent;' /etc/nginx/sites-available/default
-sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
-service nginx start
