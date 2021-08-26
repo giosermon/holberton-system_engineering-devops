@@ -16,4 +16,3 @@ elif [ "$#" == 2 ]
 then
   print_info "$1" "$2"
 fi
-
