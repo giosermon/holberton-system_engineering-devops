@@ -4,26 +4,32 @@ import json
 import requests
 from sys import argv
 
-
 if __name__ == "__main__":
-    """Your code should not be executed when imported"""
+    """ Program Entry point """
+    empId = argv[1]
+    url_todo = 'https://jsonplaceholder.typicode.com/todos'
+    url_user = 'https://jsonplaceholder.typicode.com/users'
+    payload1 = {'userId': empId}
+    payload2 = {'id': empId}
 
-    user_id = argv[1]
+    req_todo = requests.get(url_todo, params=payload1)
+    req_user = requests.get(url_user, params=payload2)
 
-    todos = requests.get(
-        "http://jsonplaceholder.typicode.com/todos?userId={}".format(
-            user_id))
-    user = requests.get(
-        "http://jsonplaceholder.typicode.com/users/{}".format(
-            user_id))
+    # Getting the NUMBER_OF_DONE_TASKS and total tasks
+    total_tasks = req_todo.json()
+    # Employee name from users
+    user_data = req_user.json()
+    emp_name = user_data[0].get('username')
+    list_dict = []
+    user_tasks = {}
 
-    out = {user.json().get('id'): []}
-    with open('{}.csv'.format(user_id), "w") as output:
-        for tarea in todos.json():
-            data = {
-                'task': tarea.get('title'),
-                'completed': tarea.get('completed'),
-                'username': user.json().get('username')
-            }
-            out.get(user.json().get('id')).append(data)
-        json.dump(out, output)
+    with open('{}.json'.format(empId), 'w') as json_file:
+        for task in total_tasks:
+            task_info = {}
+            task_info['task'] = task.get('title')
+            task_info['completed'] = task.get('completed')
+            task_info['username'] = emp_name
+            list_dict.append(task_info)
+        user_tasks[empId] = list_dict
+        info = json.dumps(user_tasks)
+        json_file.write(info)
