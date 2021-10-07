@@ -1,12 +1,4 @@
 <h1>0x1B. Web stack debugging #4</h1>
-<style type="text/css">
-  body {
-    color: purple;
-    background-color: #d8da3d }
-  h1 {
-    color: red;
-  }
-  </style>
 
 Requirements
 General
